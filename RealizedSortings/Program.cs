@@ -14,14 +14,14 @@ namespace RealizedSortings
         {
             Hashtable hash = new Hashtable();
             Queue queue_lst = new Queue();
-
+            
             hash.Add("you", new string[] { "alice", "bob", "claire" });
             hash.Add("alice", new string[] { "bob", "claire" });
 
             Add_to_Queue(hash, ref queue_lst, "you");
             Add_to_Queue(hash, ref queue_lst, Get_Key(ref queue_lst));
 
-            for (;  queue_lst.Count !=0; )
+            while (queue_lst.Count !=0)
                 Console.WriteLine($"{queue_lst.Dequeue()}");
             
         }
