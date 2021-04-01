@@ -9,22 +9,24 @@ namespace RealizedSortings
 {
     public class SearchMethods
     {
-        public static string wideSearch(Hashtable _to_search_in, string start_key)
+        public static string wideSearch(Hashtable To_search_in, string start_key)
         {
             Queue queue = new Queue();
+            string rez = "";
 
-
-            Add_to_Queue(_to_search_in, start_key);
+            Add_to_Queue(To_search_in, start_key);
 
             while (queue.Count != 0)
             {
-
-
+                rez = (string)queue.Dequeue();
+                if (Is_search_target(rez)) return rez;
+                else Add_to_Queue(To_search_in, rez);
             }
 
-            string Is_search_target(string neighbour)
+            bool Is_search_target(string neighbour)
             {
-                if (neighbour.Length > 5) return neighbour;
+                if (neighbour.Length > 5) return true;
+                return false;
             }
             void Add_to_Queue(Hashtable hash, string key)
             {
@@ -37,7 +39,7 @@ namespace RealizedSortings
             {
                 return (string)queue.Dequeue();
             }
-            return null;
+            return "There is no Matches";
         }
         
     }
