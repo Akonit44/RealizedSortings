@@ -17,7 +17,14 @@ namespace RealizedSortings
 
             hash.Add("you", new string[] { "alice", "bob", "claire" });
             hash.Add("alice", new string[] { "bob", "claire" });
-            Console.WriteLine(wideSearch(hash, "you"));
-        }
+            //Console.WriteLine(wideSearch(hash, "you"));
+
+            string a = "green";
+            var y = a.Where(x => x > 'g');
+            foreach(char typ in y)
+            {
+                Console.Write(typ + " ");
+            }
+;        }
     }
 }
