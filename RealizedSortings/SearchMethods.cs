@@ -11,6 +11,11 @@ namespace RealizedSortings
     {
         public static string wideSearch(Hashtable To_search_in, string start_key)
         {
+            //TO MAIN()->>>>>>>
+            //Hashtable hash = new Hashtable();
+            //hash.Add("you", new string[] { "alice", "bob", "claire" });
+            //hash.Add("alice", new string[] { "bob", "claire" });
+            //Console.WriteLine(wideSearch(hash, "you"));
             Queue queue = new Queue();
             string rez = "";
 
@@ -42,5 +47,6 @@ namespace RealizedSortings
             return "There is no Matches";
         }
         
+
     }
 }

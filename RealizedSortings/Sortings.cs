@@ -143,7 +143,12 @@ namespace MySortings
         }
         #endregion
         
-        
+        public static int[] LSD(int[] start)
+        {
+            int[] rez = new int[start.Length];
+
+            return LSD(rez);
+        }
     }
 
 }
