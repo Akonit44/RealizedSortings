@@ -145,9 +145,10 @@ namespace MySortings
         
         public static int[] LSD(int[] start)
         {
-            int[] rez = new int[start.Length];
+            int[] A, B, C;
+            C = new int[start.Length];
 
-            return LSD(rez);
+            return C;
         }
     }
 
