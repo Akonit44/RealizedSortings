@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace MySortings
+namespace RealizedSortings
 {
     class Sortings
     {
@@ -145,10 +145,20 @@ namespace MySortings
         
         public static int[] LSD(int[] start)
         {
-            int[] A, B, C;
-            C = new int[start.Length];
 
-            return C;
+            int[] C;
+            C = new int[10];
+            int toSort = 0;
+            for (int i = 0; i < start.Length; i++)
+            {
+                C[start[i] % 10] = start[i];
+                
+            }
+            foreach(int elem in C)
+            {
+                Console.WriteLine(elem);
+            }
+            return start;
         }
     }
 

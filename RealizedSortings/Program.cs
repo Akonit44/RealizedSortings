@@ -12,7 +12,7 @@ namespace RealizedSortings
     {
         static void Main(string[] args)
         {
-
+            Sortings.LSD(new int[] {12,13,45,88,11 });
             
         }
     }
