@@ -4,6 +4,7 @@ using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 using static RealizedSortings.SearchMethods;
 
 namespace RealizedSortings
@@ -12,7 +13,17 @@ namespace RealizedSortings
     {
         static void Main(string[] args)
         {
-            Sortings.LSD(new int[] {12,13,45,88,11 });
+
+
+            
+
+            
+            
+           
+            //foreach (int a in Sortings.LSD(new int[] { 12, 13, 45, 88, 11,54,84,74 }))
+            //{
+              //  Console.WriteLine(a);
+            //}
             
         }
     }

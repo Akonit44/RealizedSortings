@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -142,21 +143,62 @@ namespace RealizedSortings
             return LargerElems;
         }
         #endregion
-        
+
         public static int[] LSD(int[] start)
         {
+            List<int>[] sortHelper = new List<int>[10];
+            //Инициализация всех элементов помошника пустыми значениями
+            Inicialize();
+            //Добавляем в помошника элементы входного массива по разрядам в помошника
+            SortAdd_Helper();
+            //Обнуляем возвращаемый массив
+            start = new int[start.Length];
+            //Добавляем все элементы из помошника в возвращаемый массив
+            SortAdd_rez();
 
-            int[] C;
-            C = new int[10];
-            int toSort = 0;
-            for (int i = 0; i < start.Length; i++)
+            void Inicialize()
             {
-                C[start[i] % 10] = start[i];
-                
+                for (int i = 0; i < sortHelper.Length; i++)
+                    sortHelper[i] = new List<int>();
             }
-            foreach(int elem in C)
+            void SortAdd_Helper()
             {
-                Console.WriteLine(elem);
+                //Пока только по самому младшему разряду
+                for (int i = 0; i < start.Length; i++)
+                    sortHelper[start[i] % 10].Add(start[i]);
+            }
+            void SortAdd_rez()
+            {
+                int j = 0;
+                foreach (List<int> elem in sortHelper)
+                {
+                    if (elem.Count != 0)
+                    {
+                        foreach (int num in elem)
+                        {
+                            start[j] = num;
+                            j++;
+                        }
+                    }
+                }
+            }
+
+            //Получить максимальное количество разрядов из всего входного массива(Доделать)
+            int getMaxRadix()
+            {
+                int[] toKnow = new int[start.Length];
+                Array.Copy(start, toKnow, start.Length);
+                int rez = 0, toComp = 0;
+                for(int i = 0; i < toKnow.Length; i++)
+                {
+                    while(toKnow[i] /10 != 0)
+                    {
+                        toKnow[i] /= 10;
+                        rez++;
+                    }
+                }
+
+                return rez;
             }
             return start;
         }
