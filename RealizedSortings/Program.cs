@@ -20,10 +20,10 @@ namespace RealizedSortings
             
             
            
-            //foreach (int a in Sortings.LSD(new int[] { 12, 13, 45, 88, 11,54,84,74 }))
-            //{
-              //  Console.WriteLine(a);
-            //}
+            foreach (int a in Sortings.LSD(new int[] { 12, 13, 45, 88, 11,54,84,74 }))
+            {
+                Console.WriteLine(a);
+            }
             
         }
     }

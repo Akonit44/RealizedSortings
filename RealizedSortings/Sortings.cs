@@ -150,7 +150,9 @@ namespace RealizedSortings
             //Инициализация всех элементов помошника пустыми значениями
             Inicialize();
             //Добавляем в помошника элементы входного массива по разрядам в помошника
+
             SortAdd_Helper();
+
             //Обнуляем возвращаемый массив
             start = new int[start.Length];
             //Добавляем все элементы из помошника в возвращаемый массив
@@ -163,9 +165,14 @@ namespace RealizedSortings
             }
             void SortAdd_Helper()
             {
+                int toGetRawRadix = 10;
+
+                //Мы достигаем последнего разряда когда число после деления по модулю равно само себе тип 321%1000 = 321
+                //Добавь это условие в метод
                 //Пока только по самому младшему разряду
                 for (int i = 0; i < start.Length; i++)
-                    sortHelper[start[i] % 10].Add(start[i]);
+                    sortHelper[start[i] % toGetRawRadix].Add(start[i]);
+
             }
             void SortAdd_rez()
             {
@@ -183,23 +190,8 @@ namespace RealizedSortings
                 }
             }
 
-            //Получить максимальное количество разрядов из всего входного массива(Доделать)
-            int getMaxRadix()
-            {
-                int[] toKnow = new int[start.Length];
-                Array.Copy(start, toKnow, start.Length);
-                int rez = 0, toComp = 0;
-                for(int i = 0; i < toKnow.Length; i++)
-                {
-                    while(toKnow[i] /10 != 0)
-                    {
-                        toKnow[i] /= 10;
-                        rez++;
-                    }
-                }
-
-                return rez;
-            }
+            
+            
             return start;
         }
     }
