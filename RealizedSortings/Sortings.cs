@@ -8,8 +8,21 @@ using System.Threading.Tasks;
 
 namespace RealizedSortings
 {
+    interface Radix
+    {
+        bool RadixCondition(int []massToGetRadixInfo);
+    }
+    class RadixSimple : Radix
+    {
+        public bool RadixCondition(int[] massToGetRadixInfo)
+        {
+            
+            return false;
+        }
+    }
     class Sortings
     {
+        
         #region Сортировка Вставкой !!!!!!!! с костылём(
         public static int findMinIndexNew(int[] massOfElems)
         {
@@ -165,13 +178,17 @@ namespace RealizedSortings
             }
             void SortAdd_Helper()
             {
+                //получаю версию метода для для проверки разрядов чисел массива  
+                Radix radix = new RadixSimple();
                 int toGetRawRadix = 10;
-
+                const int toGetRadix = 10;
                 //Мы достигаем последнего разряда когда число после деления по модулю равно само себе тип 321%1000 = 321
                 //Добавь это условие в метод
-                //Пока только по самому младшему разряду
-                for (int i = 0; i < start.Length; i++)
-                    sortHelper[start[i] % toGetRawRadix].Add(start[i]);
+                for (int j = 0; radix.RadixCondition(start); j++) { 
+                //по самому младшему разряду
+                    for (int i = 0; i < start.Length; i++)
+                        sortHelper[start[i] % toGetRawRadix].Add(start[i]);
+                }
 
             }
             void SortAdd_rez()
